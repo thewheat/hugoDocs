@@ -102,7 +102,7 @@ params
 : A map of custom key/values.
 
 
-### Resources metadata example
+###  Resources metadata example
 
 {{< code-toggle copy="false">}}
 title: Application

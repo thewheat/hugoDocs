@@ -15,9 +15,11 @@ sections_weight: 40
 draft: false
 ---
 
-Any asset file can be processed using `resources.PostCSS` which takes for argument the resource object and a slice of options listed below.
+
+Any asset file can be processed using `resources.PostCSS` which takes for argument the resource object and a slice of options listed below. 
 
 The resource will be processed using the project's or theme's own `postcss.config.js` or any file set with the `config` option.
+
 
 ```go-html-template
 {{ $css := resources.Get "css/main.css" }}
