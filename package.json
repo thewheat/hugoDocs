@@ -1,0 +1,19 @@
+{
+  "name": "hugo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "check-links": "linkinator public/ --recurse --silent --skip https://github.com",
+    "spellcheck": "cspell \"content/en/about/**/*.md\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "cspell": "^4.0.63",
+    "hugo-bin": "^0.62.2",
+    "linkinator": "^2.1.1"
+  },
+  "hugo-bin": {
+    "buildTags": "extended"
+  }
+}
