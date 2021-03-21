@@ -42,7 +42,6 @@
     {{/* styles */}}
     {{ $options := dict "inlineImports" true }}
     {{ $styles := resources.Get "css/styles.css" }}
-    {{ warnf "STYLES: %v" $styles }}
     {{ $styles = $styles | resources.PostCSS $options }}
     {{ if  hugo.IsProduction  }}
       {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
