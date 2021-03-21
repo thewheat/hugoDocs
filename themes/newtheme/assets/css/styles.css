@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "components/all.css";
+
+html {
+    font-size: 14px;
+}
+
+@screen md {
+    html {
+        font-size: 16px;
+    }
+}
+
+.nested-blockquote blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1em;
+    /*margin: 0;*/
+}
+
+.mw-90 {
+    max-width: 90%;
+}
