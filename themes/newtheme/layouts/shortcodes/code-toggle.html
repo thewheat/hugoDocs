@@ -1,24 +1,30 @@
+{{ $file := .Get "file" }}
+{{ $code := "" }}
+{{ with .Get "config" }}
+  {{ $file = $file | default "config" }}
+  {{ $sections := (split . ".") }}
+  {{ $configSection := index $.Site.Data.docs.config $sections }}
+  {{ $code = dict $sections $configSection  }}
+{{ else }}
+  {{ $code = $.Inner }}
+{{ end  }}
 {{ $langs := (slice "yaml" "toml" "json") }}
-<div class="font-mono relative" {{ with .Get "file" }}id="{{ . | urlize}}"{{ end }}>
-	<div class="code-nav flex flex-nowrap items-stretch">
-		{{- with .Get "file" -}}
-			<div class="san-serif text-sm inline-block leading-none pl2 py-2 mr2">{{ . }}.</div>
-		{{- end -}}
-		{{ range $langs }}
-			<button data-toggle-tab="{{ . }}" class="tab-button {{ cond (eq . "yaml") "active" ""}} border border-solid san-serif text-sm inline-block leading-none ph2 py-2">{{ . }}</button>&nbsp;
-		{{ end }}
-	</div>
-	<div class="tab-content">
-		{{ range $langs }}
-			<div data-pane="{{ . }}" class="code-copy-content nt3 tab-pane {{ cond (eq . "yaml") "active" ""}}">
-				{{ highlight ($.Inner | transform.Remarshal . | safeHTML) . ""}}
-			</div>
-			{{ if ne ($.Get "copy") "false" }}
-				<button class="needs-js copy copy-toggle bg-accent-color-dark text-sm absolute top-0 right-0 leading-none hover-bg-primary-color-dark border-0 border-none text-white px-3 py-2" title="Copy this font-mono to your clipboard." data-clipboard-action="copy" aria-label="copy button">
-				</button>
-				{{/* Functionality located within filesaver.js The copy here is located in the css with .copy class so it can be replaced with JS on success */}}
-			{{end}}
-		{{ end }}
-	</div>
-
+<div x-data class="code-toggle border rounded-md bg-white border-gray-200">
+  <nav class="relative z-0 rounded-lg shadow flex divide-x divide-gray-200" aria-label="Tabs">
+    {{ range $i, $lang := $langs }}
+      <a href="#" x-on:click="$store.userSettings.configFileType = '{{ index $langs $i }}'"
+	 class="text-gray-900 rounded-l-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10" aria-current="page">
+        <span>
+          {{ printf "%s.%s" $file . }}
+        </span>
+        <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5" x-bind:class="{ 'bg-steel-500': $store.userSettings.configFileType === '{{ index $langs $i }}' }"></span>
+      </a>
+    {{ end }}
+  </nav>
+  {{ range $i, $lang := $langs }}
+    <div x-bind:class="{ 'block': $store.userSettings.configFileType === '{{ index $langs $i }}', 'hidden': $store.userSettings.configFileType !== '{{ index $langs $i }}' }">
+      {{ highlight ($code | transform.Remarshal . | safeHTML) . ""}}
+    </div>
+  {{ end }}
+  
 </div>

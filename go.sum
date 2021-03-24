@@ -1,3 +1,7 @@
+github.com/SimoTod/alpine-turbolinks-adapter v1.0.2 h1:j75SevjoZwzMn/CjHJJRjW9W9KKCJEmsL3QBXDlBl7w=
+github.com/SimoTod/alpine-turbolinks-adapter v1.0.2/go.mod h1:KebmHFXD933AzXtw24J3MbhcN7lrdMvIbmU3H7sex+M=
+github.com/alpinejs/alpine v2.8.2+incompatible h1:WO8GLAdvObtsMH1h7bmURNk58OqkEltSpY10Y8sWRrw=
+github.com/alpinejs/alpine v2.8.2+incompatible/go.mod h1:BKI81egATMnaKqFeX5HEfYMnjZjcjcZmrYAu5Nck+EY=
 github.com/gohugoio/gohugoioTheme v0.0.0-20190808163145-07b3c0f73b02/go.mod h1:kpw3SS48xZvLQGEXKu8u5XHgXkPvL8DX3oGa07+z8Bs=
 github.com/gohugoio/gohugoioTheme v0.0.0-20191014144142-1f3a01deed7b h1:PWNjl46fvtz54PKO0BdiXOF6/4L/uCP0F3gtcCxGrJs=
 github.com/gohugoio/gohugoioTheme v0.0.0-20191014144142-1f3a01deed7b/go.mod h1:kpw3SS48xZvLQGEXKu8u5XHgXkPvL8DX3oGa07+z8Bs=
@@ -25,3 +29,17 @@ github.com/gohugoio/gohugoioTheme v0.0.0-20200711112515-b0dfe471654f h1:BWJyycs4
 github.com/gohugoio/gohugoioTheme v0.0.0-20200711112515-b0dfe471654f/go.mod h1:kpw3SS48xZvLQGEXKu8u5XHgXkPvL8DX3oGa07+z8Bs=
 github.com/gohugoio/gohugoioTheme v0.0.0-20210301124928-2c15837dfec3 h1:ShqzOFeeg54FPSuS6q8HSeTVgj2xNZRe/YS0jNbi21g=
 github.com/gohugoio/gohugoioTheme v0.0.0-20210301124928-2c15837dfec3/go.mod h1:kpw3SS48xZvLQGEXKu8u5XHgXkPvL8DX3oGa07+z8Bs=
+github.com/gohugoio/hugo-mod-jslibs/alpinejs v0.8.1 h1:79Hepvk2suBAqr3YIIH/VNUhfCRjPHrO81GomBF48nE=
+github.com/gohugoio/hugo-mod-jslibs/alpinejs v0.8.1/go.mod h1:TDfVrqBdmTyCtJ0LQBDYQMRZFlUN/HtNLidriNqqh3M=
+github.com/gohugoio/hugo-mod-jslibs/alpinejs v0.8.2 h1:AsRKGqrVYZKsGnuO1V+62y4HhtCQuOsVxZ5NyGHjXqY=
+github.com/gohugoio/hugo-mod-jslibs/alpinejs v0.8.2/go.mod h1:TDfVrqBdmTyCtJ0LQBDYQMRZFlUN/HtNLidriNqqh3M=
+github.com/gohugoio/hugo-mod-jslibs/instantpage v0.5.1 h1:Aig+0MOPXiuQNZpnxOMS4uwUsnyq41JnQzGW4Gk3o7Y=
+github.com/gohugoio/hugo-mod-jslibs/instantpage v0.5.1/go.mod h1:N4EUbbL7Cw4Yq+GHeK3MUSiOJQbzfuUFRyvBKvnVBR8=
+github.com/gohugoio/hugo-mod-jslibs/spruce v0.0.0-20210327112951-5422984b401d h1:8Z+qj9Bg2WDTuCZUSLKs5XPvF/od9kVEsg16r6VF85U=
+github.com/gohugoio/hugo-mod-jslibs/spruce v0.0.0-20210327112951-5422984b401d/go.mod h1:eskeI4//CjlRk2+PgYMOuNiVFfhf0iZ6hMDqKz3l990=
+github.com/gohugoio/hugo-mod-jslibs/spruce v0.1.0 h1:6kETIOmFwQMRYmvg9paru5kg716q3oHPCuPWJ5D3nKU=
+github.com/gohugoio/hugo-mod-jslibs/spruce v0.1.0/go.mod h1:t7yzCU3sAQmp1CvaHvt7yjXQRFJGEXArhlS0b2WwTTU=
+github.com/instantpage/instant.page v5.1.0+incompatible h1:/Z2XRXfY5HwuCN3TTqo56PaFyIlDr4l3tyytR/jGHXI=
+github.com/instantpage/instant.page v5.1.0+incompatible/go.mod h1:GXVDktwI+K4T9o5mcK2NYDqPFxAUrB9U9goR9oG1SaI=
+github.com/ryangjchandler/spruce v2.6.4+incompatible h1:zsakUAAkr9NOkEYTzbjI3FL+1Fc3a6Q7BDzom+Bgl9g=
+github.com/ryangjchandler/spruce v2.6.4+incompatible/go.mod h1:pERscuhekU9NhSgrY8l7/0nLN1rBGBVnpvkMrVwGAZU=

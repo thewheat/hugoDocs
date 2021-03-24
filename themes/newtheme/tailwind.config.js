@@ -2,6 +2,7 @@ const theme = require('tailwindcss/defaultTheme');
 const typography = require('@tailwindcss/typography');
 
 const colorPrimaryDark = 'var(--primary-color-dark)';
+const colorPrimaryLight = 'var(--primary-color-light)';
 
 // Utils
 const round = (num) => num.toFixed(7).replace(/(\.[0-9]+?)0+$/, '$1').replace(/\.0$/, '');
@@ -10,15 +11,33 @@ const em = (px, base) => `${round(px / base)}em`;
 const px = (px) => `${px}px`;
 
 module.exports = {
+	darkMode: 'class', // See https://tailwindcss.com/docs/dark-mode
+	important: '#gohugoio', // See https://tailwindcss.com/docs/configuration#important
 	theme: {
 		fontFamily: {
 			...theme.fontFamily,
 			sans: [ 'Mulish', ...theme.fontFamily.sans ]
 		},
 		extend: {
+			typography: (theme) => ({
+				DEFAULT: {
+					css: {
+						maxWidth: '75ch',
+						'code::before': false,
+						'code::after': false,
+						'tbody td:first-child': false
+					}
+				},
+				lg: {
+					css: {
+						'tbody td:first-child': false
+					}
+				}
+			}),
 			// Generated on https://tailwind.ink/ based on the old primary color: #0594CB
 			colors: {
 				primarydark: colorPrimaryDark,
+				primarylight: colorPrimaryLight,
 				steel: {
 					'50': '#f2fafc',
 					'100': '#ddf8fa',
@@ -142,7 +161,6 @@ module.exports = {
 			}
 		}
 	},
-	important: true, // See https://tailwindcss.com/docs/configuration#important
 	purge: {
 		enabled: process.env.HUGO_ENVIRONMENT === 'production',
 		content: [ './hugo_stats.json', './layouts/**/*.html' ],

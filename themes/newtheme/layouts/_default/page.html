@@ -1,37 +1,28 @@
 <header class="flex-none w-full">
-  {{ if .Params.categories }}
-    {{ range .Params.categories }}
-      <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="text-sm font-extrabold mb-0 link text-gray-500 dim mr3">
-        {{ humanize  . | upper }}
-      </a>
-    {{ end }}
-  {{end}}
-  <h1 class="leading-tight mb-3 my-0 pt-3 text-steel-900">
-    {{- if eq .Section "functions" -}}
-      {{ .LinkTitle }}
-    {{- else -}}
-      {{ .Title }}
-    {{- end -}}
+  {{ $categories := .GetTerms "categories" }}
+  {{ range $categories }}
+    <a href="{{ .RelPermalink }}" class="text-sm font-extrabold mb-0 link text-gray-500 dim mr-3">
+      {{ .Title | upper }}
+    </a>
+  {{ end }}
+  
+  <h1 class="text-4xl font-semibold leading-tight mb-3 my-0 pt-3 black">
+    {{ .Title }}
   </h1>
 </header>
 
-<aside class="border-t border-solid border-2 pt-3 mt-2 text-gray-500 b--mid-gray fn w-full">
-  {{ with .Params.description }}
-    <div class="text-xl font-normal leading-normal">
-      {{ . | markdownify }}
-    </div>
-  {{ end }}
-  
-  <!--
-  NOTE: Removed to test builds without it.
-  partial "components/author-github-data" (dict "context" . "size" "110") -->
-</aside>
-
+{{/* TODO1 check usage */}}
 {{ with .Params.featured_image_path }}
   <img src="{{ . }}" alt="Featured Image for {{ $.Title }}" class="mw-100">
 {{ end }}
 
-<div class="prose lg:prose-xl" id="prose">
+<div class="mt-4 md:mt-8 prose lg:prose-lg" id="prose">
+  {{ with .Params.description }}
+    <div class="lead">
+      {{ . | $.RenderString }}
+    </div>
+  {{ end }}
+  
   {{- partial "docs/functions-signature.html" . -}}
   {{ .Content }}
 </div>

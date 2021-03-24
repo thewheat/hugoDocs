@@ -1,36 +1,55 @@
 {{ define "main" }}
-<div class="w-full px-4 pb-5 sm:pb-6 pt-1 mt4 sm:pt-3">
+  <div class="w-full px-4 pb-5 sm:pb-6 pt-1 mt4 sm:pt-3">
     <div class="lg:flex">
-        <div class="order-2 w-full lg:w-1/5 md:px-5 lg:py-0 mb-4 sticky">
-            <aside class="fixed-lTK mw5-l right-0 text-sm lg:border-l border-solid b--moon-gray py-4 sm:py-0 lg:px-4 nested-list-reset nested-links leading-normal">
-                <p class="font-bold">What's on this Page</p>
-                <ul>
-                    <li><a href="#last-updated">Last Updated</a></li>
-                    <li><a href="#least-recently-updated">Least Recently Updated</a></li>
-                     <li><a href="#todos">Pages marked with TODO</a></li>
-                </ul>
-            </aside>
-        </div>
-        <div class="w-full">
-            {{ $byLastMod :=  .Site.RegularPages.ByLastmod  }}
-            {{ $recent := ($byLastMod | last 30).Reverse }}
-            {{ $leastRecent := $byLastMod | first 10 }}            
-            <h2 id="last-updated">Last Updated</h2>
-            {{ partial "maintenance-pages-table" $recent }}
-            <h2 id="least-recently-updated">Least Recently Updated</h2>
-            {{ partial "maintenance-pages-table" $leastRecent }}
-
-            {{/* Don't think this is possible with where directly. Should investigate. */}}
-            {{ .Scratch.Set "todos" slice }}
-            {{ range .Site.RegularPages }}
-                 {{ if .HasShortcode "todo" }}
-                 {{ $.Scratch.Add "todos" . }}
-                 {{ end }}
-            {{ end }}
-            <h2 id="todos">Pages marked with TODO</h2>
-            {{ partial "maintenance-pages-table" (.Scratch.Get "todos") }}
-
-        </div>
+      <div class="order-2 w-full lg:w-1/5 md:px-5 lg:py-0 mb-4 sticky">
+        <aside class="fixed-lTK mw5-l right-0 text-sm lg:border-l border-solid b--moon-gray py-4 sm:py-0 lg:px-4 nested-list-reset nested-links leading-normal">
+          <h3 class="font-bold">
+            What's on this Page
+          </h3>
+          <ul>
+            <li>
+              <a href="#last-updated">
+                Last Updated
+              </a>
+            </li>
+            <li>
+              <a href="#least-recently-updated">
+                Least Recently Updated
+              </a>
+            </li>
+            <li>
+              <a href="#todos">
+                Pages marked with TODO
+              </a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+      <div class="w-full">
+        {{ $byLastMod :=  .Site.RegularPages.ByLastmod  }}
+        {{ $recent := ($byLastMod | last 30).Reverse }}
+        {{ $leastRecent := $byLastMod | first 10 }}
+        <h2 id="last-updated">
+          Last Updated
+        </h2>
+        {{ partial "maintenance-pages-table" $recent }}
+        <h2 id="least-recently-updated">
+          Least Recently Updated
+        </h2>
+        {{ partial "maintenance-pages-table" $leastRecent }}
+        
+        {{/* Don't think this is possible with where directly. Should investigate. */}}
+        {{ .Scratch.Set "todos" slice }}
+        {{ range .Site.RegularPages }}
+          {{ if .HasShortcode "todo" }}
+            {{ $.Scratch.Add "todos" . }}
+          {{ end }}
+        {{ end }}
+        <h2 id="todos">
+          Pages marked with TODO
+        </h2>
+        {{ partial "maintenance-pages-table" (.Scratch.Get "todos") }}
+      </div>
     </div>
-</div>
+  </div>
 {{ end }}

@@ -6,7 +6,7 @@
     <header class="flex-none w-full pb-3">
       {{ if .Params.categories }}
         {{ range .Params.categories }}
-          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="text-sm font-extrabold mb-0 link text-gray-500 dim mr3">
+          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="text-sm font-extrabold mb-0 link text-gray-500 dim mr-3">
             {{ humanize  . | upper }}
           </a>
         {{ end }}
@@ -58,16 +58,16 @@
       </div>
     </div>
     {{ if and .Params.tags .Site.Taxonomies.tags }}
-      <div class="mt5 text-sm text-gray-600 nested-lh-copy bg-light-gray px-3 py-2 lg:max-w-lg">
+      <div class="mt5 text-sm text-gray-600 nested-lh-copy bg-gray-300 px-3 py-2 lg:max-w-lg">
           {{ $name := index .Params.tags 0 }}
           {{ $name := $name | urlize }}
           {{ $tags := index .Site.Taxonomies.tags $name }}
 
-            <ul class="list-reset inline-block nested-links ml-0 pl0">
+            <ul class="list-reset inline-block nested-links ml-0 pl-0">
               <li class="inline-block mb-2 mr2">Related:</li>
               {{ range $tags.Pages }}
                 {{ if ne .RelPermalink $currentPageUrl }}
-                  <li class="mb-2 mr3">
+                  <li class="mb-2 mr-3">
                      <a href="{{ .RelPermalink }}" class="link">
                        {{ .LinkTitle }}
                      </a>

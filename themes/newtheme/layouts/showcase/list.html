@@ -23,7 +23,7 @@
 
 
 {{define "showcase_items"}}
-  <a href="{{.Permalink}}" class="b--moon-gray border border-solid bg-animate bg-white block flex-auto-ns hover-bg-near-white mb-3 mr3 w-full w-30-l" style="max-width: 1024px;">
+  <a href="{{.Permalink}}" class="b--moon-gray border border-solid bg-animate bg-white block flex-auto-ns hover-bg-near-white mb-3 mr-3 w-full w-30-l" style="max-width: 1024px;">
     <div class="flex flex-column text-black h-full mb-2 p-3 lg:p-4">
       {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
       {{ with $img }}

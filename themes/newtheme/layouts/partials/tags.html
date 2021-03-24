@@ -5,13 +5,13 @@
   {{ $tags := index .Site.Taxonomies.tags $name }}
 
   <div class="nested-lh-copy">
-    <ul class="list-reset inline-block nested-links ml-0 pl0">
+    <ul class="list-reset inline-block nested-links ml-0 pl-0">
       {{ with .Params.tags }}
         <li class="block mb-2 font-bold">
           Tags:
         </li>
         {{ range .}}
-          <li class="block lg:inline-block mr3">
+          <li class="block lg:inline-block mr-3">
             <a class="tag" href="/tags/{{ .|urlize }}">
               {{ . }}
             </a>
@@ -25,7 +25,7 @@
           </li>
         {{ end }}
         {{ if ne .RelPermalink $currentPageUrl }}
-          <li class="block lg:inline-block mb-2 mr3">
+          <li class="block lg:inline-block mb-2 mr-3">
             <a href="{{ .RelPermalink }}" class="link">
               {{ .LinkTitle }}
             </a>

@@ -6,6 +6,16 @@ variants:
 
 # tachyons_class => tailwind_class
 replacements:
+  hover-accent-color-light: "hover:text-hotpink-400"
+  hover-bg-gray: "hover:bg-gray-400"
+  bg-light-gray: bg-gray-300
+  hover-bg-light-gray: "hover:bg-gray-300"
+  nl2: -ml-2
+  pl2: pl-2
+  pr2: pr-2
+  mb1: mb-1
+  pl0: pl-0
+  mr3: mr-3
   ph5: px-5
   ph0: py-0
   mb4: mb-4
@@ -14,6 +24,7 @@ replacements:
   pa0: p-0
   dn: hidden
   dib: inline-block
+  near-black: text-gray-900
   b--light-gray: border-gray-300
   pt0-l: pt-0
   mid-gray: text-gray-500

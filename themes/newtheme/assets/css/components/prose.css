@@ -1,0 +1,34 @@
+.prose table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.prose td,
+.prose th {
+  @apply p-1;
+}
+.prose table {
+  @apply block w-full overflow-auto;
+}
+
+.prose table th {
+  @apply font-semibold;
+}
+
+.prose table td,
+.prose table th {
+  @apply p-2 border border-solid border-gray-200;
+}
+
+.prose table tr {
+  @apply bg-white border-t border-solid border-gray-50;
+}
+
+.prose table tr:nth-child(2n) {
+  @apply bg-gray-50;
+}
+
+.prose .anchor {
+  padding-top: 40px;
+  visibility: hidden;
+}

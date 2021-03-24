@@ -10,7 +10,7 @@
 {{ end }}
 <div class="font-mono relative" id="{{ $file | urlize}}">
 	{{- with $file -}}
-		<div class="filename san-serif text-sm inline-block leading-none pl2 py-2">{{.}}</div>
+		<div class="filename san-serif text-sm inline-block leading-none pl-2 py-2">{{.}}</div>
 	{{- end -}}
 
 	{{ if ne (.Get "copy") "false" }}

@@ -2,12 +2,12 @@
  "comments": {
   "dependencies": {},
   "devDependencies": {
-   "@tailwindcss/typography": "newtheme",
-   "autoprefixer": "newtheme",
-   "postcss": "newtheme",
-   "postcss-cli": "newtheme",
-   "postcss-purgecss": "newtheme",
-   "tailwindcss": "newtheme"
+   "@tailwindcss/typography": "github.com/gohugoio/gohugoioTheme",
+   "autoprefixer": "github.com/gohugoio/gohugoioTheme",
+   "postcss": "github.com/gohugoio/gohugoioTheme",
+   "postcss-cli": "github.com/gohugoio/gohugoioTheme",
+   "postcss-purgecss": "github.com/gohugoio/gohugoioTheme",
+   "tailwindcss": "github.com/gohugoio/gohugoioTheme"
   }
  },
  "dependencies": {},
@@ -17,7 +17,7 @@
   "postcss": "^8.1.10",
   "postcss-cli": "^8.0.0",
   "postcss-purgecss": "^2.0.3",
-  "tailwindcss": "^2.0.1"
+  "tailwindcss": "^2.0.3"
  },
  "name": "hugoDocs",
  "version": "0.1.0"
