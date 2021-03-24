@@ -22,7 +22,7 @@ replacements:
   ma2: m-2
   o-10: opacity-10
   nested-copy-line-height: leading-normal
-  bg-carrot-50: bg-limegreen-50
+  bg-limegreen-50: bg-gray-50
 
 # these (Tachyons) classes will be ignored during migrations
 already_migrated:
