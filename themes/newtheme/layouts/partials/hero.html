@@ -1,18 +1,20 @@
-<header class="bg-primary-color-dark ph4 tc" role="banner">
-  <section class="center pb4 pb5-l ph4-l pt3 pt5-ns w-90 w-60-l">
-    <div class="center w-100 w-50-ns">
-        <img src="/images/hugo-logo-wide.svg" alt="Hugo Logo">
+<header class="bg-gradient-to-b from-primarydark to-steel-800 p-4 text-center" role="banner">
+  <section class="mx-auto pb-4 lg:pb-5 lg:px-4 pt-3 sm:pt-5 w-11/12 lg:w-3/5">
+    <div class="mx-auto w-2/3 sm:w-1/2">
+      <img src="/images/hugo-logo-wide.svg" alt="Hugo Logo">
     </div>
     {{ with .Site.Params.description }}
-      <h2 class="f3 f1-l fw4 white-90 m0 lh-title pt2 pb3 pv0-ns">
+      <h2 class="text-2xl lg:text-5xl font-normal text-steel-100 m-0 leading-tight mt-6 sm:mt-8">
         {{ . }}
       </h2>
     {{ end }}
-    <div class="lh-copy f4 w-90-ns center fw2 silver tc tc-ns">
+    <div class="leading-normal text-xl sm:w-11/12 mt-4 sm:mt-8 mx-auto font-extralight text-steel-200 text-center sm:text-center">
       {{ .Content }}
     </div>
-    <div class="w4 mv4 center">
-      <a class="f5 db link grow tc v-mid bg-blue white ba b--blue ph3 pv2 br1" href="/getting-started/quick-start/">Quick Start</a>
+    <div class="w-32 mv4 mx-auto mt-8">
+      <a class="block btn-primary" href="/getting-started/quick-start/">
+        Quick Start
+      </a>
     </div>
   </section>
 </header>

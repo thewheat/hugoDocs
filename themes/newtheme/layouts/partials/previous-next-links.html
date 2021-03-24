@@ -1,12 +1,12 @@
 {{if .Prev }}
-  <a href="{{ .Prev.Permalink }}" class="db-l f4 f3-ns link primary-color hover-black fw8 mr4">
-    <span class="v-mid dib">{{ partial "svg/ic_chevron_left_black_24px.svg" (dict "size" "30px") }}</span> {{ .Prev.Title }}
+  <a href="{{ .Prev.Permalink }}" class="lg:block text-xl sm:text-2xl link text-steel-500 hover-black font-extrabold mr-4">
+    <span class="v-mid inline-block">{{ partial "svg/ic_chevron_left_black_24px.svg" (dict "size" "30px") }}</span> {{ .Prev.Title }}
   </a>
 {{end}}
 
 {{if .Next }}
-  <a href="{{.Next.Permalink }}" class="db-l f4 f3-ns link primary-color hover-black fw8">
-    {{ .Next.Title }} <span class="v-mid dib">{{ partial "svg/ic_chevron_right_black_24px.svg" (dict "size" "30px") }}</span>
+  <a href="{{.Next.Permalink }}" class="lg:block text-xl sm:text-2xl link text-steel-500 hover-black font-extrabold">
+    {{ .Next.Title }} <span class="v-mid inline-block">{{ partial "svg/ic_chevron_right_black_24px.svg" (dict "size" "30px") }}</span>
   </a>
 {{end}}
 

@@ -1,29 +1,29 @@
 {{ define "main" }}
 {{ $section_to_display := .Pages }}
-<div class="w-100 ph4 pb5 pb6-ns pt1 pt3-ns">
+<div class="w-full px-4 pb-5 sm:pb-6 pt-1 sm:pt-3">
 
   <div class="flex">
-    <div class="dn db-l w-20">
+    <div class="hidden lg:block w-1/5">
         {{ partial "nav-links-docs.html" . }}
     </div>
 
-    <div class="w-100 w-80-l ph0 ph4-l">
-      <article class="w-100 nested-copy-line-height nested-links nested-img">
-        <h1 class="primary-color-dark f2">
+    <div class="w-full lg:w-4/5 py-0 lg:px-4">
+      <article class="w-full leading-normal nested-links nested-img">
+        <h1 class="text-steel-900 text-4xl">
           {{ .Title }}
         </h1>
       </article>
-      <div class="pa3 pa4-ns w-100 v-top column-count-3-l column-gap-1-l">
+      <div class="p-3 sm:p-4 w-full v-top column-count-3-l column-gap-1-l">
           {{ range $key, $value := .Data.Terms }}
-            <div class="break-inside-avoid-l nested-copy-line-height mb5">
-              <h2 class="f3">
-                <a href="{{ "/" | relLangURL }}{{ $.Data.Plural | urlize }}/{{ $key | urlize }}" class="link black hover-blue">
-                  {{ $key }} <span class="f6 gray"> &#8599;</span>
+            <div class="break-inside-avoid-l leading-normal mb5">
+              <h2 class="text-2xl">
+                <a href="{{ "/" | relLangURL }}{{ $.Data.Plural | urlize }}/{{ $key | urlize }}" class="link text-black hover-blue">
+                  {{ $key }} <span class="text-sm text-gray-600"> &#8599;</span>
                 </a>
               </h2>
               {{ range $value.Pages }}
                 <h3>
-                  <a href="{{ .Permalink }}" class="link blue">
+                  <a href="{{ .Permalink }}" class="link text-royalblue-600">
                     {{ .Title }}
                   </a>
                 </h3>

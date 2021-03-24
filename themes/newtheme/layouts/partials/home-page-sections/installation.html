@@ -1,34 +1,34 @@
-  <div class="flex-ns flex-wrap center mw9">
+  <div class="sm:flex flex-wrap mx-auto max-w-6xl">
     <!-- LEFT -->
 
-    <div class="w-100 w-50-ns">
-      <div class="w-80 center tc nested-copy-line-height">
-        <h3 class="f2 black">Install in seconds, build in milliseconds.</h3>
-        <p class="f3">Hugo works on macOS, Windows, Linux, FreeBSD, and others.</p>
-        <p class="f3">Host on any server or your favorite CDN.</p>
+    <div class="w-full sm:w-1/2">
+      <div class="w-4/5 mx-auto text-center leading-normal">
+        <h3 class="text-4xl text-black">Install in seconds, build in milliseconds.</h3>
+        <p class="text-2xl">Hugo works on macOS, Windows, Linux, FreeBSD, and others.</p>
+        <p class="text-2xl">Host on any server or your favorite CDN.</p>
       </div>
     </div>
 
     <!-- RIGHT -->
-    <div class="w-100 w-50-ns tc">
-      <div class="h4">
-        <img src="/images/gopher-hero.svg" alt="Hugo Gopher" class="h4">
+    <div class="w-full sm:w-1/2 text-center">
+      <div class="h-32">
+        <img src="/images/gopher-hero.svg" alt="Hugo Gopher" class="h-32">
       </div>
-      <p class="f6 mid-gray m0 p0 pt3">macOS</p>
-      <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-50-ns center mb2 tl">
+      <p class="text-sm text-gray-500 m0 p0 pt-3">macOS</p>
+      <div class="font-mono text-sm bg-black light-green leading-normal py-3 px-3 rounded w-full sm:w-1/2 mx-auto mb-2 text-left">
         $ brew install hugo <br />
       </div>
-      <p class="f6 mid-gray">Windows</p>
-      <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-50-ns center tl">
+      <p class="text-sm text-gray-500">Windows</p>
+      <div class="font-mono text-sm bg-black light-green leading-normal py-3 px-3 rounded w-full sm:w-1/2 mx-auto text-left">
         $ choco install hugo -confirm <br />
       </div>
-      <p class="f6 mid-gray">Linux</p>
-      <div class="code f6 bg-black light-green lh-copy pv3 ph3 br2 w-100 w-50-ns center tl">
+      <p class="text-sm text-gray-500">Linux</p>
+      <div class="font-mono text-sm bg-black light-green leading-normal py-3 px-3 rounded w-full sm:w-1/2 mx-auto text-left">
         $  snap install hugo <br />
       </div>
      
 
-      <p class="f5 nested-links"><a href="{{ "getting-started/installing/" | absURL }}" class="link">See the Getting Started Guide for other methods. {{ partial "svg/link-ext.svg" (dict "fill" "#333" "size" "14") }}</a></p>
+      <p class="text-base nested-links"><a href="{{ "getting-started/installing/" | absURL }}" class="link">See the Getting Started Guide for other methods. {{ partial "svg/link-ext.svg" (dict "fill" "#333" "size" "14") }}</a></p>
     </div>
 
     <!-- TODO: the install section should have a tab menu for selecting the preferred installation method, i.e. the binaries from GitHub or the commands for the installation via a package manager https://github.com/rdwatters/hugo-docs-concept/issues/3#issuecomment-287498412 -->

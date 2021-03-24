@@ -3,30 +3,30 @@ Showcase: {{ .Title }}
 {{ end }}
 
 {{ define "main" }}
-  <article class="center ph3 ph4-ns pv3 pv5-ns mw9">
+  <article class="mx-auto px-3 sm:px-4 py-3 sm:py-5 max-w-6xl">
 
     <!-- header spans the full width -->
     <div class="flex flex-wrap">
 
-      <div class="w-100 w-20-l order-1 order-0-l">
+      <div class="w-full lg:w-1/5 order-1 order-0-l">
         {{template "sc-details" .}}
       </div>
 
-      <div class="w-100 w-60-l order-0 order-1-l ph4-l">
+      <div class="w-full lg:w-3/5 order-0 order-1-l lg:px-4">
         {{template "sc-main-column" .}}
       </div>
 
-      <aside class="dn mid-gray w-100 w-20-ns flex-l justify-center order-2">
+      <aside class="hidden text-gray-500 w-full sm:w-1/5 lg:flex justify-center order-2">
         {{template "sc-navigation" .}}
       </aside>
 
     </div>
 
-    <div class="f6 gray mv6">{{/* bottom row */}}
+    <div class="text-sm text-gray-600 mv6">{{/* bottom row */}}
       Last Update: {{ .Lastmod.Format "January 2, 2006" }} <br>
       {{ partial "page-edit.html" . }}
     </div>
-    <div class="b">The Showcase articles are copyright the content authors. Any open source license will be attached.</div>
+    <div class="font-bold">The Showcase articles are copyright the content authors. Any open source license will be attached.</div>
   </article>
 {{ end }}
 
@@ -43,10 +43,10 @@ Showcase: {{ .Title }}
       srcset="{{ $small.RelPermalink }} 512w, {{ $big.RelPermalink }} 1024w"
       sizes="(min-width: 1570px) 822px, (max-width: 1569px) and (min-width: 960px) 50vw, 93vw"
       width="{{ $big.Width }}"
-      class="mw-100 b--light-gray ba"
+      class="mw-100 border-gray-300 border border-solid"
     >
   {{ end }}
-   <div class="mid-gray nested-copy-line-height nested-img nested-links">
+   <div class="text-gray-500 leading-normal nested-img nested-links">
   {{with .Params.byline }}
      <div style="margin-top: 20px; font-style: italic;">By {{ . | markdownify -}}</div>
   {{ end }}
@@ -58,24 +58,24 @@ Showcase: {{ .Title }}
 {{end}}
 
 {{define "sc-details"}}
-  <div class="mt4 mt0-ns nested-links">
-    <div class="ba b--light-gray bg-white pa3">
-      <h1 class="f2-fluid mt0">{{.Title}}</h1>
+  <div class="mt4 sm:mt-0 nested-links">
+    <div class="border border-solid border-gray-300 bg-white p-3">
+      <h1 class="f2-fluid mt-0">{{.Title}}</h1>
       {{ with .Params.siteURL }}
-      <a href="{{ . }}" class="db f5 mb1">{{ . | replaceRE "^https?://(www\\.)?([^/]+).*" "$2"}} {{ partial "svg/link-ext.svg" (dict "size" "10") }}</a>
+      <a href="{{ . }}" class="block text-base mb1">{{ . | replaceRE "^https?://(www\\.)?([^/]+).*" "$2"}} {{ partial "svg/link-ext.svg" (dict "size" "10") }}</a>
       {{ end }}
       {{ with .Params.siteSource }}
-      <a href="{{ . }}" class="db mb4">source {{ partial "svg/link-ext.svg" (dict "size" "10") }}</a>
+      <a href="{{ . }}" class="block mb-4">source {{ partial "svg/link-ext.svg" (dict "size" "10") }}</a>
       {{ end }}
       {{ $bio := (.Resources.ByType "page").GetMatch "bio*" }}
       {{ with $bio }}
-        <div class="f6 mid-gray nested-copy-line-height nested-links">
+        <div class="text-sm text-gray-500 leading-normal nested-links">
           {{- .Content -}}
         </div>
       {{ end }}
     </div>
-    <div class="b--light-gray bt dn-l pt3">
-      <div class="f6 gray mb2">Previous/Next</div>
+    <div class="border-gray-300 border-t border-solid lg:hidden pt-3">
+      <div class="text-sm text-gray-600 mb-2">Previous/Next</div>
       {{- partial "previous-next-links-in-section-with-title.html" . -}}
     </div>
   </div>
@@ -84,20 +84,20 @@ Showcase: {{ .Title }}
 {{define "sc-navigation"}}
   {{$section := where .Site.RegularPages "Section" .Section}}
   {{$number_of_entries := $section | len}}
-  <ul class="pa0 list">
-  <li class="b f5 blTK b--light-gray pb2 pl2">
+  <ul class="p-0 list-reset">
+  <li class="font-bold text-base blTK border-gray-300 pb2 pl2">
       More Sites
   </li>
     {{range first 20 $section}}
-      <li class="bl b--light-gray pl2 f6 hover-bg-light-gray hover-accent-color-light {{if eq $ .}} bg-light-gray{{end}}">
-        <a href="{{.RelPermalink}}" class="db link w-100 pv1 ph1 {{ if eq $ . }} b  primary-color{{else}} mid-gray {{end}}">
+      <li class="border-l border-solid border-gray-300 pl2 text-sm hover-bg-light-gray hover-accent-color-light {{if eq $ .}} bg-light-gray{{end}}">
+        <a href="{{.RelPermalink}}" class="block link w-full pv1 ph1 {{ if eq $ . }} font-bold  primary-color{{else}} text-gray-500 {{end}}">
           {{- .Title -}}
         </a>
       </li>
     {{end}}
     {{if gt $number_of_entries 20}}
       <li class="mt3">
-        <a href="/showcase/page/2/" class="link blue">
+        <a href="/showcase/page/2/" class="link text-royalblue-600">
           See More &raquo;
         </a>
       </li>

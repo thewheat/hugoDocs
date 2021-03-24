@@ -1,38 +1,41 @@
-{{ $currentPage := . }}
-<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
-
-  <div class="center flex-ns flex-wrap items-center justify-start mw9">
-
-    <h1 class="dim f3 lh-solid ml0-ns mr0 mr4-l mv0 pl3 pl4-ns">
-      <a href="https://gohugo.io/" class="link white">
-         HUGO
-      </a>
-    </h1>
-    <ul class="list ma0 pa0 dn dib-l">
+<nav class="bg-primarydark flex flex-wrap items-center justify-between p-4">
+  <div class="flex flex-shrink-0 mr-10">
+    {{/* We use this theme both at gohugo.io and themes.gohugo.io -- this is to make sure it behaves during development. */}}
+    {{ $home := cond hugo.IsProduction "https://gohugo.io" site.Home.RelPermalink }}
+    <a class="text-xl text-white font-semibold" href="{{ $home }}">
+      HUGO
+    </a>
+  </div>
+  <div class="block lg:hidden">
+    <button class="navbar-burger flex items-center py-2 px-3 text-indigo-500 rounded border border-indigo-500">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <title>
+          Menu
+        </title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="navbar-menu hidden lg:flex lg:flex-grow lg:items-center w-full lg:w-auto">
+    <div class="lg:mr-auto">
       {{ range .Site.Menus.global }}
-        <li class="f5 dib mr4" role="menuitem">
-            {{/* TODO: Create an "Global" active class to show which site one is currently at */}}
-          <a href="{{ .URL }}" class="dim link{{ if $currentPage.IsMenuCurrent "global" . }} gray {{else}} light-silver{{ end }}">
-            {{ .Name }}
-              {{/* using ".Post" from the menu system to determine if we should show an icon for external links */}}
-            {{ $post_status := printf "%s" .Post }}
-            {{ if eq $post_status "external" }}
-              <span class="pl1">
-                {{ partial "svg/link-ext.svg" (dict "size" "10") }}
-              </span>
-            {{ end }}
-          </a>
-        </li>
+        {{/* TODO(bep) */}}
+        {{ $isCurrent := $.IsMenuCurrent "global" . }}
+        {{ $class := cond $isCurrent "text-gray-600" "text-gray-400" }}
+        <a class="block lg:inline-block mt-4 relative lg:mt-0 mr-10 {{ $class }} font-semibold dim" href="{{ .URL }}">
+          {{ .Name }}
+          {{/* using ".Post" from the menu system to determine if we should show an icon for external links */}}
+          {{ $post_status := printf "%s" .Post }}
+          {{ if eq $post_status "external" }}
+            <span class="pl-1 absolute top-2">
+              {{ partial "svg/link-ext.svg" (dict "size" "10") }}
+            </span>
+          {{ end }}
+        </a>
       {{ end }}
-    </ul>
-
-    <div class="db dib-ns pl3">
-      {{- partial "site-search.html" . -}}
     </div>
-
-    <span class="absolute mt1 mt2-l pr3 right-0 top-0">
+    <div>
       {{- partialCached "social-follow.html" . -}}
-    </span>
-
+    </div>
   </div>
 </nav>

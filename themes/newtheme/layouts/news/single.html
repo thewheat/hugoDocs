@@ -1,37 +1,37 @@
 {{ define "main" }}
   {{ $currentPageUrl := .RelPermalink }}
 
-  <article class="cf ph4 pv3 pv5-ns">
+  <article class="clearfix px-4 py-3 sm:py-5">
       <!-- header spans the full width -->
-    <header class="flex-none w-100 pb3">
+    <header class="flex-none w-full pb-3">
       {{ if .Params.categories }}
         {{ range .Params.categories }}
-          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="f6 fw8 mb0 link mid-gray dim mr3">
+          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="text-sm font-extrabold mb-0 link text-gray-500 dim mr3">
             {{ humanize  . | upper }}
           </a>
         {{ end }}
       {{end}}
 
-      <h1 class="lh-title fw9 mb7 mv0 pt3">
-        <a href="{{ .RelPermalink }}" class="link primary-color dim">
+      <h1 class="leading-tight font-black mb7 my-0 pt-3">
+        <a href="{{ .RelPermalink }}" class="link text-steel-500 dim">
           {{ .Title }}
         </a>
       </h1>
     </header>
 
-    <div class="flex-l">
-      <aside class="mid-gray fn w-100 w-25-l">
+    <div class="lg:flex">
+      <aside class="text-gray-500 fn w-full lg:w-1/4">
         {{ with .Params.description }}
-          <h2 class="f3 lh-title">
+          <h2 class="text-2xl leading-tight">
             {{ . | markdownify }}
           </h2>
         {{ end }}
-        <time class="f6 mt2 db ttu tracked" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+        <time class="text-sm mt-2 block uppercase tracked" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
           {{ .Date.Format "January 2, 2006" }}
         </time>
         {{ if in .Params.categories "Releases" }}
         <p>
-        Go to <a href="https://github.com/gohugoio/hugo/releases" class="link primary-color dim">Hugo Releases</a> for the release downloads.
+        Go to <a href="https://github.com/gohugoio/hugo/releases" class="link text-steel-500 dim">Hugo Releases</a> for the release downloads.
         </p>
         {{ end }}
         <!--
@@ -44,7 +44,7 @@
 
       </aside>
 
-      <div class="fn pl5-l pt3 mid-gray w-100 w-two-third-l sans-serif nested-copy-line-height no-underline nested-links nested-img nested-copy-seperator nested-blockquote measure-wide-l"><!-- TODO: Can the content top and the description top line up more precisely, or is just winging it with padding the best we've got? -->
+      <div class="fn pl5-l pt-3 text-gray-500 w-full w-two-third-l font-sans leading-normal no-underline nested-links nested-img nested-copy-seperator nested-blockquote lg:max-w-lg"><!-- TODO: Can the content top and the description top line up more precisely, or is just winging it with padding the best we've got? -->
         {{ with .Params.featured_image_path }}
           <img src="{{ . }}" alt="Featured Image for {{ $.Title }}" class="mw-100">
         {{ else }}
@@ -58,16 +58,16 @@
       </div>
     </div>
     {{ if and .Params.tags .Site.Taxonomies.tags }}
-      <div class="mt5 f6 gray nested-lh-copy bg-light-gray ph3 pv2 measure-wide-l">
+      <div class="mt5 text-sm text-gray-600 nested-lh-copy bg-light-gray px-3 py-2 lg:max-w-lg">
           {{ $name := index .Params.tags 0 }}
           {{ $name := $name | urlize }}
           {{ $tags := index .Site.Taxonomies.tags $name }}
 
-            <ul class="list dib nested-links ml0 pl0">
-              <li class="dib mb2 mr2">Related:</li>
+            <ul class="list-reset inline-block nested-links ml-0 pl0">
+              <li class="inline-block mb-2 mr2">Related:</li>
               {{ range $tags.Pages }}
                 {{ if ne .RelPermalink $currentPageUrl }}
-                  <li class="mb2 mr3">
+                  <li class="mb-2 mr3">
                      <a href="{{ .RelPermalink }}" class="link">
                        {{ .LinkTitle }}
                      </a>
@@ -78,7 +78,7 @@
           </div>
         {{end}}
 
-      <div class="gray f6 mv6">
+      <div class="text-gray-600 text-sm mv6">
         Last Update: {{ .Lastmod.Format "January 2, 2006" }} <br>
         {{ partial "page-edit.html" . }}
       </div>

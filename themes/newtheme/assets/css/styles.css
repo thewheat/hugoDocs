@@ -14,6 +14,12 @@ html {
     }
 }
 
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    fill: currentColor; /* Applies to SVG only */
+}
+
 .nested-blockquote blockquote {
     border-left: 4px solid var(--primary-color);
     padding-left: 1em;
@@ -22,4 +28,41 @@ html {
 
 .mw-90 {
     max-width: 90%;
+}
+
+/* Combine with classes in skins and skins-pseudo for 
+ * many different transition possibilities. */
+.bg-animate,
+.bg-animate:hover,
+.bg-animate:focus {
+    -webkit-transition: background-color 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
+}
+
+/*
+
+  Dim element on hover by adding the dim class.
+
+*/
+.dim {
+    opacity: 1;
+    -webkit-transition: opacity 0.15s ease-in;
+    transition: opacity 0.15s ease-in;
+}
+.dim:hover,
+.dim:focus {
+    opacity: 0.5;
+    -webkit-transition: opacity 0.15s ease-in;
+    transition: opacity 0.15s ease-in;
+}
+.dim:active {
+    opacity: 0.8;
+    -webkit-transition: opacity 0.15s ease-out;
+    transition: opacity 0.15s ease-out;
+}
+
+@layer components {
+    .btn-primary {
+        @apply py-2 px-4 bg-steel-500 text-white font-semibold rounded-lg shadow-md hover:bg-steel-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+    }
 }
