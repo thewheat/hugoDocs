@@ -164,6 +164,9 @@ module.exports = {
 	purge: {
 		enabled: process.env.HUGO_ENVIRONMENT === 'production',
 		content: [ './hugo_stats.json', './layouts/**/*.html' ],
+		options: {
+			safelist: [ 'dark' ]
+		},
 		extractors: [
 			{
 				extractor: (content) => {

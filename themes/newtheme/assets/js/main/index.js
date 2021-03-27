@@ -2,7 +2,10 @@ import { initStore } from '../components/index';
 
 // Client state.
 (function() {
+	// Now we know that the browser has JS enabled.
 	document.documentElement.classList.remove('no-js');
+
+	// Set up the Spruce data store.
 	initStore();
 })();
 
@@ -12,9 +15,6 @@ import { initStore } from '../components/index';
 	window.hc = {
 		colorSchemeController: function() {
 			return {
-				isLoaded: function() {
-					return this.$store.userSettings;
-				},
 				isDark: function() {
 					return this.$store.userSettings.colorScheme === 'dark';
 				},
