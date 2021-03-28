@@ -3,7 +3,7 @@
   {{ if .Params.toc }}
     {{ with .TableOfContents }}
       {{ if ge (len .) 100 }}
-        <h3 class="text-lg font-bold">
+        <h3 class="text-lg font-bold dark:text-gray-100">
           What's on this Page
         </h3>
         <div class="leading-relaxed tracking-tight mt-2 mb-8">
@@ -15,7 +15,7 @@
   
   {{ $related := .Site.RegularPages.Related . | first 5 }}
   {{ with $related }}
-    <h3 class="text-lg font-bold">
+    <h3 class="text-lg font-bold dark:text-gray-100">
       See Also
     </h3>
     <ul class="text-md mt-2">

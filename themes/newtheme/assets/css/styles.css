@@ -74,4 +74,8 @@ body {
     a {
         @apply text-steel-700 hover:text-steel-500 no-underline;
     }
+
+    .dark a {
+        @apply text-steel-600 hover:text-steel-400 no-underline;
+    }
 }

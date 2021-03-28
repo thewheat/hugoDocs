@@ -28,6 +28,14 @@
   @apply bg-gray-50;
 }
 
+.dark .prose table tr {
+  @apply bg-gray-900 border-t border-solid border-gray-600 text-white;
+}
+
+.dark .prose table tr:nth-child(2n) {
+  @apply bg-gray-700;
+}
+
 .prose .anchor {
   padding-top: 40px;
   visibility: hidden;

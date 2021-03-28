@@ -32,6 +32,22 @@ module.exports = {
 					css: {
 						'tbody td:first-child': false
 					}
+				},
+				dark: {
+					css: {
+						color: theme('colors.gray.300'),
+
+						h2: {
+							color: theme('colors.gray.300')
+						},
+
+						a: {
+							color: theme('colors.blue.100'),
+							'&:hover': {
+								color: theme('colors.blue.100')
+							}
+						}
+					}
 				}
 			}),
 			// Generated on https://tailwind.ink/ based on the old primary color: #0594CB
@@ -178,5 +194,10 @@ module.exports = {
 		],
 		mode: 'all'
 	},
-	plugins: [ typography ]
+	plugins: [ typography ],
+	variants: {
+		extend: {
+			typography: [ 'dark' ]
+		}
+	}
 };

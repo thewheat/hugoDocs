@@ -6,7 +6,7 @@
     </a>
   {{ end }}
   
-  <h1 class="text-4xl font-semibold leading-tight mb-3 my-0 pt-3 black">
+  <h1 class="text-4xl font-semibold leading-tight mb-3 my-0 pt-3 black dark:text-gray-100">
     {{ .Title }}
   </h1>
 </header>
@@ -16,9 +16,9 @@
   <img src="{{ . }}" alt="Featured Image for {{ $.Title }}" class="mw-100">
 {{ end }}
 
-<div class="mt-4 md:mt-8 prose lg:prose-lg" id="prose">
+<div class="mt-4 md:mt-8 prose lg:prose-lg dark:prose-dark" id="prose">
   {{ with .Params.description }}
-    <div class="lead">
+    <div class="lead dark:text-gray-300">
       {{ . | $.RenderString }}
     </div>
   {{ end }}
