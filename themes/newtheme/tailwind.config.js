@@ -20,6 +20,7 @@ module.exports = {
 		},
 		extend: {
 			typography: (theme) => ({
+				// See https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
 				DEFAULT: {
 					css: {
 						maxWidth: '75ch',
@@ -37,7 +38,19 @@ module.exports = {
 					css: {
 						color: theme('colors.gray.300'),
 
+						code: {
+							color: theme('colors.gray.100')
+						},
+
 						h2: {
+							color: theme('colors.gray.300')
+						},
+
+						h3: {
+							color: theme('colors.gray.300')
+						},
+
+						h4: {
 							color: theme('colors.gray.300')
 						},
 
@@ -194,7 +207,7 @@ module.exports = {
 		],
 		mode: 'all'
 	},
-	plugins: [ typography ],
+	plugins: [ typography, require('nightwind') ],
 	variants: {
 		extend: {
 			typography: [ 'dark' ]

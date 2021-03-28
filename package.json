@@ -4,6 +4,7 @@
   "devDependencies": {
    "@tailwindcss/typography": "github.com/gohugoio/gohugoioTheme",
    "autoprefixer": "github.com/gohugoio/gohugoioTheme",
+   "nightwind": "github.com/gohugoio/gohugoioTheme",
    "postcss": "github.com/gohugoio/gohugoioTheme",
    "postcss-cli": "github.com/gohugoio/gohugoioTheme",
    "postcss-purgecss": "github.com/gohugoio/gohugoioTheme",
@@ -14,6 +15,7 @@
  "devDependencies": {
   "@tailwindcss/typography": "^0.3.0",
   "autoprefixer": "^10.0.4",
+  "nightwind": "^1.1.7",
   "postcss": "^8.1.10",
   "postcss-cli": "^8.0.0",
   "postcss-purgecss": "^2.0.3",

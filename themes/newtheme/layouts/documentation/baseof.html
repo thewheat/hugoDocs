@@ -3,7 +3,7 @@
   {{ partial "sections/common/head.html" . }}
   <body class="m-0 font-sans">
     {{ partial "sections/common/after-body-start.html" . }}
-    <div class="bg-gray-50 dark:bg-primarydark">
+    <div class="bg-gray-50 dark:bg-gray-900">
       {{ block "nav" . }}
         {{ partial "sections/nav/site-menu.html" . }}
       {{ end }}
@@ -40,7 +40,7 @@
           {{/* Static desktop sidebar */}}
           <div class="hidden lg:flex lg:flex-shrink-0">
             <div class="flex flex-col w-64">
-              <div class="flex flex-col h-0 flex-1 border-r border-gray-200 bg-gray-50 dark:border-gray-600 dark:bg-primarydark">
+              <div class="flex flex-col h-0 flex-1 border-r border-gray-200 bg-gray-50 dark:border-gray-600 dark:bg-gray-900">
                 <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                   <nav class="mt-0 flex-1" aria-label="Sidebar">
                     <div class="px-0">

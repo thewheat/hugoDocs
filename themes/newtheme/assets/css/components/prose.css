@@ -28,6 +28,11 @@
   @apply bg-gray-50;
 }
 
+.dark .prose table td,
+.dark .prose table th {
+  @apply p-2 border border-solid border-gray-700;
+}
+
 .dark .prose table tr {
   @apply bg-gray-900 border-t border-solid border-gray-600 text-white;
 }
