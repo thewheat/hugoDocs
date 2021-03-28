@@ -12,8 +12,13 @@ const px = (px) => `${px}px`;
 
 module.exports = {
 	darkMode: 'class', // See https://tailwindcss.com/docs/dark-mode
-	important: '#gohugoio', // See https://tailwindcss.com/docs/configuration#important
+	//important: '#gohugoio', // See https://tailwindcss.com/docs/configuration#important
+	plugins: [ typography, require('nightwind') ],
 	theme: {
+		nightwind: {
+			typography: true,
+			transitionDuration: false
+		},
 		fontFamily: {
 			...theme.fontFamily,
 			sans: [ 'Mulish', ...theme.fontFamily.sans ]
@@ -35,32 +40,7 @@ module.exports = {
 					}
 				},
 				dark: {
-					css: {
-						color: theme('colors.gray.300'),
-
-						code: {
-							color: theme('colors.gray.100')
-						},
-
-						h2: {
-							color: theme('colors.gray.300')
-						},
-
-						h3: {
-							color: theme('colors.gray.300')
-						},
-
-						h4: {
-							color: theme('colors.gray.300')
-						},
-
-						a: {
-							color: theme('colors.blue.100'),
-							'&:hover': {
-								color: theme('colors.blue.100')
-							}
-						}
-					}
+					css: {}
 				}
 			}),
 			// Generated on https://tailwind.ink/ based on the old primary color: #0594CB
@@ -194,7 +174,7 @@ module.exports = {
 		enabled: process.env.HUGO_ENVIRONMENT === 'production',
 		content: [ './hugo_stats.json', './layouts/**/*.html' ],
 		options: {
-			safelist: [ 'dark' ]
+			safelist: [ 'dark', 'nightwind' ]
 		},
 		extractors: [
 			{
@@ -207,7 +187,6 @@ module.exports = {
 		],
 		mode: 'all'
 	},
-	plugins: [ typography, require('nightwind') ],
 	variants: {
 		extend: {
 			typography: [ 'dark' ]
