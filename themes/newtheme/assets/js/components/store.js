@@ -6,9 +6,17 @@ export function initStore() {
 		'userSettings',
 		{
 			// light or dark mode.
-			colorScheme: 'light',
+			// If not set, we use the OS setting.
+			colorScheme: '',
 			// Used to show the most relevant tab in config listings etc.
-			configFileType: 'toml'
+			configFileType: 'toml',
+
+			isDark() {
+				if (!this.colorScheme) {
+					return isMediaDark();
+				}
+				return this.colorScheme === 'dark';
+			}
 		},
 		true // Store it in localStorage
 	);
@@ -22,15 +30,27 @@ export function initStore() {
 	});
 }
 
+function isMediaDark() {
+	return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
 export function initColorScheme() {
 	// The Spruce store has not have been initialized yet, so access the
 	// localStorage directly.
 	const userSettingsLocalStorageKey = '__spruce:userSettings';
-	let darkSetByUser =
-		userSettingsLocalStorageKey in localStorage && localStorage[userSettingsLocalStorageKey].includes('dark');
+
+	let settingsJSON = localStorage[userSettingsLocalStorageKey];
+	if (settingsJSON) {
+		let settings = JSON.parse(settingsJSON);
+		if (settings.colorScheme) {
+			// Set by user, always use that.
+			toggleDarkMode(settings.colorScheme === 'dark');
+			return;
+		}
+	}
 
 	// Fall back to the OS setting.
-	toggleDarkMode(darkSetByUser || window.matchMedia('(prefers-color-scheme: dark)').matches);
+	toggleDarkMode(isMediaDark());
 }
 
 const toggleDarkMode = function(dark) {

@@ -16,10 +16,11 @@ import { initStore } from '../components/index';
 		colorSchemeController: function() {
 			return {
 				isDark: function() {
-					return this.$store.userSettings.colorScheme === 'dark';
+					return this.$store.userSettings.isDark();
 				},
 				toggle: function() {
-					this.$store.userSettings.colorScheme = this.isDark() ? 'light' : 'dark';
+					let old = this.$store.userSettings.colorScheme;
+					this.$store.userSettings.colorScheme = old === 'dark' ? 'light' : 'dark';
 				}
 			};
 		}
