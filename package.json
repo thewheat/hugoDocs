@@ -21,6 +21,6 @@
   "postcss-purgecss": "^2.0.3",
   "tailwindcss": "^2.0.3"
  },
- "name": "hugoDocs",
+ "name": "hugo-docs",
  "version": "0.1.0"
 }
