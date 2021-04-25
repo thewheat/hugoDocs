@@ -16,9 +16,9 @@
   <img src="{{ . }}" alt="Featured Image for {{ $.Title }}" class="mw-100">
 {{ end }}
 
-<div class="mt-4 md:mt-8 prose lg:prose-lg dark:prose-dark" id="prose">
+<div class="mt-4 md:mt-8 prose lg:prose-lg" id="prose">
   {{ with .Params.description }}
-    <div class="lead dark:text-gray-300">
+    <div class="lead">
       {{ . | $.RenderString }}
     </div>
   {{ end }}

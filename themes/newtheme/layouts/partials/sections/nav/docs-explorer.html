@@ -17,10 +17,10 @@
         
         {{- if .HasChildren }}
           {{ $hasCurrent :=  $currentPage.IsMenuCurrent "docs" . }}
-          <ul class="pl-0 bg-gray-100 dark:bg-gray-900" x-show.transition.origin.top.left="({{ $isCurrent }} && !('{{ .Identifier }}' in menu)) || menu['{{ .Identifier }}']">
+          <ul class="pl-0 bg-gray-100" x-show.transition.origin.top.left="({{ $isCurrent }} && !('{{ .Identifier }}' in menu)) || menu['{{ .Identifier }}']">
             {{- range .Children }}
               <li class="text-sm font-normal">
-                <a href="{{.URL}}" class="block hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-hotpink-600 pl-6 pr-2 py-2 {{if $hasCurrent }}text-steel-500 {{ else }}black {{end}}">
+                <a href="{{.URL}}" class="block hover:bg-gray-50 hover:text-hotpink-600 pl-6 pr-2 py-2 {{if $hasCurrent }}text-steel-500 {{ else }}black {{end}}">
                   {{ .Name }}
                 </a>
               </li>

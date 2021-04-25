@@ -5,10 +5,10 @@
     {{ $pages = (.Site.Taxonomies.categories.fundamentals).Pages | lang.Merge (.Sites.First.Taxonomies.categories.fundamentals).Pages }}
   {{ end }}
   
-  <h1 class="text-3xl font-semibold">
+  <h1 class="text-3xl text-black font-semibold">
     {{ .Title }}
   </h1>
-  <div class="mt-8 text-lg">
+  <div class="mt-8 text-lg text-black">
     {{ .Content }}
   </div>
   {{ if $pages }}
