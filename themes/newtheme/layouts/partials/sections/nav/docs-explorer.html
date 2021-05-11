@@ -1,5 +1,5 @@
 {{ $currentPage := . }}
-<nav role="navigation" x-data="{ menu: {}, show: false }" x-init="() => { show = true }">
+<nav role="navigation" id="main-menu" x-data="{ menu: {}, show: true }" data-turbolinks-permanent>
   <ul x-cloak class="p-0" x-show.transition.in.opacity.300ms="show">
     {{ range .Site.Menus.docs.ByWeight }}
       {{ $post := printf "%s" .Post }}
