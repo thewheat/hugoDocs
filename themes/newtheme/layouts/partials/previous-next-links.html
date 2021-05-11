@@ -1,25 +1,32 @@
 {{if .Prev }}
-  <a href="{{ .Prev.Permalink }}" class="lg:block text-xl sm:text-2xl link text-steel-500 hover-black font-extrabold mr-4">
-    <span class="v-mid inline-block">{{ partial "svg/ic_chevron_left_black_24px.svg" (dict "size" "30px") }}</span> {{ .Prev.Title }}
+  <a href="{{ .Prev.RelPermalink }}" class="lg:block text-xl sm:text-2xl link text-steel-500 hover-black font-extrabold mr-4">
+    <span class="v-mid inline-block">
+      {{ partial "svg/ic_chevron_left_black_24px.svg" (dict "size" "30px") }}
+    </span>
+    {{ .Prev.Title }}
   </a>
 {{end}}
 
 {{if .Next }}
-  <a href="{{.Next.Permalink }}" class="lg:block text-xl sm:text-2xl link text-steel-500 hover-black font-extrabold">
-    {{ .Next.Title }} <span class="v-mid inline-block">{{ partial "svg/ic_chevron_right_black_24px.svg" (dict "size" "30px") }}</span>
+  <a href="{{.Next.RelPermalink }}" class="lg:block text-xl sm:text-2xl link text-steel-500 hover-black font-extrabold">
+    {{ .Next.Title }}
+    <span class="v-mid inline-block">
+      {{ partial "svg/ic_chevron_right_black_24px.svg" (dict "size" "30px") }}
+    </span>
   </a>
 {{end}}
 
+{{/* TODO(bep) */}}
 
 <script>
   document.body.onkeyup = function(e){
-    if (!(e.ctrlKey || e.shiftKey || e.altKey || e.metaKey)) {
-    {{- if .Prev }}
-      if (e.keyCode == '37') { window.location = '{{ .Prev.Permalink }}'; }
-    {{- end }}
-    {{- if .Next }}
-      if (e.keyCode == '39') { window.location = '{{ .Next.Permalink }}'; }
-    {{- end }}
-    }
+  if (!(e.ctrlKey || e.shiftKey || e.altKey || e.metaKey)) {
+  {{- if .Prev }}
+  if (e.keyCode == '37') { window.location = '{{ .Prev.RelPermalink }}'; }
+  {{- end }}
+  {{- if .Next }}
+  if (e.keyCode == '39') { window.location = '{{ .Next.RelPermalink }}'; }
+  {{- end }}
+  }
   };
 </script>

@@ -19,7 +19,7 @@
   {{ end }}
   
   {{ range .AlternativeOutputFormats -}}
-    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .RelPermalink | safeURL }}">
   {{ end -}}
   
   {{/* TODO1 check usage $.Scratch.Set "stylesheet" . */}}
@@ -51,6 +51,7 @@
   {{ end }}
   {{ partialCached "helpers/script-src.html" (dict "js" (resources.Get "js/main/index.js") "loadAttribute" "defer") "js/main/index.js" }}
   {{ partialCached "jslibs/alpinejs/script-src.html" "-" }}
+  {{ partialCached "jslibs/turbolinks/script-src.html" "-" }}
   {{ partial "site-manifest.html" . }}
   {{- partial "head-additions.html" . -}}
   {{- template "_internal/opengraph.html" . -}}

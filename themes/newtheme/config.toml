@@ -5,7 +5,10 @@ disableKinds = ["page", "section", "taxonomy", "term"]
 [module]
 [module.hugoVersion]
 extended = false
-min = "0.75.0"
+min = "0.83.1"
+[[module.imports]]
+path = "github.com/gohugoio/hugo-mod-jslibs/turbolinks"
+
 [[module.imports]]
 path = "github.com/gohugoio/hugo-mod-jslibs/alpinejs"
 [[module.imports]]

@@ -39,7 +39,11 @@ github.com/gohugoio/hugo-mod-jslibs/spruce v0.0.0-20210327112951-5422984b401d h1
 github.com/gohugoio/hugo-mod-jslibs/spruce v0.0.0-20210327112951-5422984b401d/go.mod h1:eskeI4//CjlRk2+PgYMOuNiVFfhf0iZ6hMDqKz3l990=
 github.com/gohugoio/hugo-mod-jslibs/spruce v0.1.0 h1:6kETIOmFwQMRYmvg9paru5kg716q3oHPCuPWJ5D3nKU=
 github.com/gohugoio/hugo-mod-jslibs/spruce v0.1.0/go.mod h1:t7yzCU3sAQmp1CvaHvt7yjXQRFJGEXArhlS0b2WwTTU=
+github.com/gohugoio/hugo-mod-jslibs/turbolinks v0.6.0 h1:3jJ57v6Rr6BOQ0wYmlRt1ZE+kSP8vXnKNFMn8w1u6bA=
+github.com/gohugoio/hugo-mod-jslibs/turbolinks v0.6.0/go.mod h1:0COpoSU/YogktyDLZn4aoXioJPq+f4jvdenIZj5ozMQ=
 github.com/instantpage/instant.page v5.1.0+incompatible h1:/Z2XRXfY5HwuCN3TTqo56PaFyIlDr4l3tyytR/jGHXI=
 github.com/instantpage/instant.page v5.1.0+incompatible/go.mod h1:GXVDktwI+K4T9o5mcK2NYDqPFxAUrB9U9goR9oG1SaI=
 github.com/ryangjchandler/spruce v2.6.4+incompatible h1:zsakUAAkr9NOkEYTzbjI3FL+1Fc3a6Q7BDzom+Bgl9g=
 github.com/ryangjchandler/spruce v2.6.4+incompatible/go.mod h1:pERscuhekU9NhSgrY8l7/0nLN1rBGBVnpvkMrVwGAZU=
+github.com/turbolinks/turbolinks-source-gem v5.2.0+incompatible h1:UNx8t3fYB51UyUv3gOXpTPT7Q6u9LCdcXQd2iW1EClA=
+github.com/turbolinks/turbolinks-source-gem v5.2.0+incompatible/go.mod h1:Cl0Br9tUXkQvxumVNGTvyaa7dqpFC2kPMrsS0Ttc94U=
