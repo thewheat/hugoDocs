@@ -1,54 +1,56 @@
 <nav class="nightwind-prevent nightwind-prevent-block bg-gray-900 flex flex-wrap items-center justify-between p-4 m-0" x-data="{ open: false }">
-  <div class="flex flex-shrink-0 mr-10">
-    {{/* We use this theme both at gohugo.io and themes.gohugo.io -- this is to make sure it behaves during development. */}}
-    {{ $home := cond hugo.IsProduction "https://gohugo.io" site.Home.RelPermalink }}
-    <a class="nightwind-prevent text-xl text-white font-semibold" href="{{ $home }}">
-      HUGO
-    </a>
-  </div>
-  <div class="block lg:hidden">
-    <button type="button" class="-mr-3 h-12 w-12 inline-flex items-center justify-center rounded-md text-white hover:text-gray-200" @click="open = !open">
-      <span class="sr-only">
-        Open menu
-      </span>
-      <!-- Heroicon name: outline/menu -->
-      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </div>
-  <div class="navbar-menu lg:flex lg:flex-grow lg:items-center w-full lg:w-auto" x-bind:class="{'block': open, 'hidden': !open}">
-    <div class="lg:mr-auto">
-      {{ range .Site.Menus.global }}
-        {{/* TODO(bep) */}}
-        {{ $isCurrent := $.IsMenuCurrent "global" . }}
-        {{ $class := cond $isCurrent "text-gray-600" "text-gray-400" }}
-        <a class="block lg:inline-block mt-4 relative lg:mt-0 mr-10 {{ $class }} font-semibold dim" href="{{ .URL }}">
-          {{ .Name }}
-          {{/* using ".Post" from the menu system to determine if we should show an icon for external links */}}
-          {{ $post_status := printf "%s" .Post }}
-          {{ if eq $post_status "external" }}
-            <span class="pl-1 absolute top-2">
-              {{ partial "svg/link-ext.svg" (dict "size" "10") }}
-            </span>
-          {{ end }}
-        </a>
-      {{ end }}
+  <div class="container mx-auto flex flex-shrink-0 items-center">
+    <div class="mr-10">
+      {{/* We use this theme both at gohugo.io and themes.gohugo.io -- this is to make sure it behaves during development. */}}
+      {{ $home := cond hugo.IsProduction "https://gohugo.io" site.Home.RelPermalink }}
+      <a class="nightwind-prevent text-xl text-white font-semibold" href="{{ $home }}">
+        HUGO
+      </a>
     </div>
-    
-    <div class="flex items-center space-x-4">
-      {{ template "button-social-twitter" }}
-      {{ template "button-social-github" }}
-    </div>
-    <div class="nightwind-prevent ml-10 flex items-center space-x-8">
-      <button x-data="hc.colorSchemeController()" @click="toggle()" type="button"
-            :class="{ 'bg-gray-600 hover:bg-gray-700': isDark(), 'bg-orange-500 hover:bg-orange-600': !isDark() }"
-            class="inline-flex items-center p-2 border border-transparent rounded-full shadow-sm text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-steel-500">
-        <svg x-cloak aria-hidden="true"  class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path x-show="isDark()" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-          <path x-show="!isDark()" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+    <div class="block lg:hidden">
+      <button type="button" class="-mr-3 h-12 w-12 inline-flex items-center justify-center rounded-md text-white hover:text-gray-200" @click="open = !open">
+        <span class="sr-only">
+          Open menu
+        </span>
+        <!-- Heroicon name: outline/menu -->
+        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
+    </div>
+    <div class="navbar-menu lg:flex lg:flex-grow lg:items-center w-full lg:w-auto" x-bind:class="{'block': open, 'hidden': !open}">
+      <div class="lg:mr-auto">
+        {{ range .Site.Menus.global }}
+          {{/* TODO(bep) */}}
+          {{ $isCurrent := $.IsMenuCurrent "global" . }}
+          {{ $class := cond $isCurrent "text-gray-600" "text-gray-400" }}
+          <a class="block lg:inline-block mt-4 relative lg:mt-0 mr-10 {{ $class }} font-semibold dim" href="{{ .URL }}">
+            {{ .Name }}
+            {{/* using ".Post" from the menu system to determine if we should show an icon for external links */}}
+            {{ $post_status := printf "%s" .Post }}
+            {{ if eq $post_status "external" }}
+              <span class="pl-1 absolute top-2">
+                {{ partial "svg/link-ext.svg" (dict "size" "10") }}
+              </span>
+            {{ end }}
+          </a>
+        {{ end }}
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        {{ template "button-social-twitter" }}
+        {{ template "button-social-github" }}
+      </div>
+      <div class="nightwind-prevent ml-10 flex items-center space-x-8">
+        <button x-data="hc.colorSchemeController()" @click="toggle()" type="button"
+            :class="{ 'bg-gray-600 hover:bg-gray-700': isDark(), 'bg-orange-500 hover:bg-orange-600': !isDark() }"
+            class="inline-flex items-center p-2 border border-transparent rounded-full shadow-sm text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-steel-500">
+          <svg x-cloak aria-hidden="true"  class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path x-show="isDark()" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            <path x-show="!isDark()" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </nav>
